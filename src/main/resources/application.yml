@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: kafka-demo
+  kafka:
+    # Consumer Deserializa
+    consumer:
+      bootstrap-servers: ${HOST:localhost}:${PORT:9092}
+      # Usando grupo
+      group-id: myGroup
+      # cuando queremos restablecer nuestro desplazamiento (offset = desplazamiento)
+      # earliest -> Restablece automáticamente el offset al offset más antiguo.
+      # exception -> Lanzar excepción al consumidor.
+      # latest -> Restablecer automáticamente el offset al último offset.
+      # none -> Lanzar una excepción al consumidor si no hay ningún offset previo incorrecto...
+      auto-offset-reset: earliest
+      # Serializador de clave
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      # Valor serializado
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+    # Producer Serializa
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  output:
+    ansi:
+      enabled: ALWAYS

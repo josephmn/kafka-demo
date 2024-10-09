@@ -18,6 +18,9 @@ spring:
       # Valor serializado
       # value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        # spring.json.trusted.packages: api.azure.kafka_demo.payload
+        spring.json.trusted.packages: '*'
 
     # Producer Serializa
     producer:

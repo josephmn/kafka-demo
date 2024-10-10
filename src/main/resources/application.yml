@@ -4,7 +4,7 @@ spring:
   kafka:
     # Consumer Deserializa
     consumer:
-      bootstrap-servers: ${HOST:localhost}:${PORT:9092}
+      bootstrap-servers: ${HOST_CONSUMER:localhost}:${PORT_CONSUMER:9092}
       # Usando grupo
       group-id: myGroup
       # cuando queremos restablecer nuestro desplazamiento (offset = desplazamiento)
@@ -24,7 +24,7 @@ spring:
 
     # Producer Serializa
     producer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: ${HOST_PRODUCER:localhost}:${PORT_PRODUCER:9092}
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       # value-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
